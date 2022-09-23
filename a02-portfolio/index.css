@@ -48,3 +48,33 @@
     color: white !important;
     text-decoration: none !important ;
 }
+.skills-container {
+    width: 80%; /* Full width */
+    background-color: #ddd; /* Grey background */
+    border-radius: 10px;
+    float: left;
+  }
+  
+  .skills-bar {
+    text-align: right; /* Right-align text */
+    padding-top: 5px; /* Add top padding */
+    padding-bottom: 5px; /* Add bottom padding */
+    color: white; 
+    /*White text color */
+  }
+  
+  .fill-90 {
+    width: 90%;
+} /* Green */
+  .bg-green {background-color: #04AA6D !important;}
+  
+  .fill-80 {width: 80%} 
+  .bg-blue {background-color: #1c045e !important;}
+
+  .bg-pink1 {background-color: #6b1571 !important;}
+  .bg-orange {background-color: #b44408 !important;}
+
+  .fill-75 {width: 75%} 
+  .fill-70 {width: 70%} 
+
+  
