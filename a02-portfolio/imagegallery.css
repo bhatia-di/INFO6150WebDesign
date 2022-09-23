@@ -34,22 +34,23 @@
     z-index:9998;
     left:0;
     padding:5%;
-    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));
+    background-image: linear-gradient(to bottom, transparent, rgba(25, 5, 80, 0.75));
   }
   
   .meta {
     font-size:14px;
     display:block;
-    color: blueviolet;
-    
+    color: rgba(25, 5, 80, 0.75);
+    font-weight:500;
+
   }
   
   .main-title {
     font-size:16px;
     display:block;
     font-weight:700;
-    text-shadow:0 0 1px rgba(0,0,0,0.5);
-    color: blueviolet;
+    text-shadow:0 0 1px rgba(25, 5, 80, 0.75);
+    color: rgba(25, 5, 80, 0.75);
 
   }
   
@@ -79,6 +80,6 @@
   }
   
   .thumb-box a:hover .overlay-box {
-    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0, 1));
+    background-image: linear-gradient(to bottom, transparent, rgba(25, 5, 80, 0.75));
   
   }
