@@ -12,3 +12,39 @@
 .float-right {
     float: right;
 }
+.height-20 {
+    height: 20%;
+}
+
+.font-medium {
+    font-size: medium;
+}
+
+.font-large {
+    font-size: large;
+}
+
+.font-larger {
+    font-size: larger;
+}
+
+.button-theme {
+    background-color: black !important;
+    color: #fff !important;
+    border: none !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 15px !important;
+    min-height: 30px !important;
+    min-width: 120px !important;
+  }
+
+  .button-theme:hover {
+    transition: 0.9s;
+    background-color:#002ead !important;
+}
+
+.a-tag {
+    color: white !important;
+    text-decoration: none !important ;
+}
