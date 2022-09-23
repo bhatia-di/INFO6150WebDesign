@@ -80,4 +80,8 @@
   hr.solid {
     border-top: 3px solid #bbb;
   }
-  
+  footer {
+    text-align: center;
+    padding: 1%;
+    color: white;
+  }
