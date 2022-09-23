@@ -76,5 +76,8 @@
 
   .fill-75 {width: 75%} 
   .fill-70 {width: 70%} 
-
+  
+  hr.solid {
+    border-top: 3px solid #bbb;
+  }
   

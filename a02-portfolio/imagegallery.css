@@ -8,9 +8,6 @@
     max-width:33.3333%;
     margin:0 15px;
     position:relative;
-  
-     
-      
   }
   
   
@@ -20,6 +17,7 @@
       width: 100%;
       height: 100%;
     z-index:9997;
+    text-decoration: none;
   }
   
   .thumb-box img {
@@ -36,12 +34,13 @@
     z-index:9998;
     left:0;
     padding:5%;
-        background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.75));
   }
   
   .meta {
     font-size:14px;
     display:block;
+    color: blueviolet;
     
   }
   
@@ -50,6 +49,8 @@
     display:block;
     font-weight:700;
     text-shadow:0 0 1px rgba(0,0,0,0.5);
+    color: blueviolet;
+
   }
   
   .description {
@@ -64,7 +65,12 @@
       opacity: 0;
       transition: opacity 0.4s ease-out, max-height 0.4s ease-out, margin 0.4s;
   }
-  
+
+  .thumb-box:hover {
+
+    transform: scale(1.2);
+    transition: 0.5s;
+  }  
   .thumb-box a:hover .description {
       opacity:1;
           max-height: 100px;
