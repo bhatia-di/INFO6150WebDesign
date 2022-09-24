@@ -15,11 +15,29 @@ I have used float:right to align the navbar towards the right of the navigation 
 
 3	Use of column layout structure
 
+I have used column layout structure in the about me section.
+I set the below property to create a divider among the text.
+column-count: 2;
+column-rule: 0.5px solid lightgray;
+
+
+
 4	use of absolute/relative position whenever necessary.
 
+Added position relative to flex div in the column direction for image gallery.
+Added position absolute proprtyinside the text to show it at the right location
+
+
 5	use of tel, mailto option for contact information 
+In the contact me section, I have used both attributes and user can email me if they want to contact me.
+
 
 6	If you add any table then style the table using CSS selectors. Guide for CSS Selectors - http://www.w3schools.com/cssref/css_selectors.asp
+
+I have used a lot of selectors. For example,
+#id
+.css_classname
+:hover
 
 7	Create a professional  image gallery for certifications etc. with hover effects and figure captions. Include this in your portfolio.
 
@@ -27,20 +45,33 @@ I have used float:right to align the navbar towards the right of the navigation 
 
 9	Make the website responsive using media queries for devices like IPad(768px) and Smart phones (350 – 365px). For example, below pic is a sample. 
 
+I have added media queries to make the images responsive.
+
+
 10	Use your own creativity and there would be 10 bonus point so document the creativity while submit the assignment so we can evaluate. f or 10 bonus point need to be creative and explain and justify in readme.txt file and also while giving the demo
 
+I think I have depicted my creativity with chossing the right color theme and also adopting to right practices.
+I have added pictures and used the <img> tag to my benefit and made the website more reactive and responsive by adding 
+interactions that catch the eye.
+
+1. Resume Button Css interaction
+2. Skills Sliders 
+3. Hover effects in the skills section
+4. Linear Gradient in the Skills section
+5. Trasitions throught the webpage
 
 11	Include the readme.txt and include all the tags used. 
+<nav>
+<img>
+<p>
+<a>
+<h1>, <h6>
+<br>
+<span>
+<footer>
+<section>
+<hr>
+
 
 12	For this assignment you need to have very good UI(rich UI) as this will be considered while grading.
 
-
-
-HTML Tags Used:
-
-CSS Properties Used:
-
-Styling Achievements:
-
-
- 
