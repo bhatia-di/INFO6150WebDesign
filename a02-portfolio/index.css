@@ -28,6 +28,9 @@
     font-size: larger;
 }
 
+.text-align-center {
+    text-align: center;
+}
 .button-theme {
     background-color: black !important;
     color: #fff !important;
@@ -85,3 +88,69 @@
     padding: 1%;
     color: white;
   }
+
+  /* home-image */
+
+  .home-row, .row-image-gallery {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .home-image {
+    width: 80%;
+    height: 90%;
+  }
+
+  .profile-image {
+    width: 80%;
+  }
+
+
+  #aboutme-left {
+    width: 50%;
+  }
+
+  #aboutme-right {
+    width: 50%;
+  }
+  
+@media screen and (max-width: 992px) {
+   
+  .home-row, .row-image-gallery {
+        display: flex;
+        flex-direction: column;
+    }
+  .home-image {
+    width: 100%;
+  }
+  .profile-image {
+    width: 100%;
+  }
+
+  #aboutme-left {
+    width: 100%;
+  }
+
+  #aboutme-right {
+    width: 100%;
+  }
+ 
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .home-image {
+    width: 100%;
+  }
+  .profile-image {
+    width: 100%;
+  }
+  #aboutme-left {
+    width: 100%;
+  }
+
+  #aboutme-right {
+    width: 100%;
+  }
+ 
+}

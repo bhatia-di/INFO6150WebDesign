@@ -1,15 +1,48 @@
 .row-image-gallery  {
     display:flex;
-    align-items:center
+    align-items:center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
   }
   
   .thumb-box {
     display:flex;
-    max-width:33.3333%;
     margin:0 15px;
     position:relative;
+    width: 25%;
+
   }
   
+  @media screen and (max-width: 992px) {
+    .row-image-gallery  {
+        display:flex;
+        align-items:center;
+        flex-direction: column;
+      }
+    .thumb-box {
+        display:flex;
+        margin:0 15px;
+        position:relative;
+        width: 80%;
+      }
+  }
+
+  @media screen and (max-width: 600px) {
+    .row-image-gallery  {
+        display:flex;
+        align-items:center;
+        flex-direction: column;
+      }
+    .thumb-box {
+        margin:0 15px;
+        position:relative;
+        width: 400px;
+      }
+
+  }
+
   
   .thumb-box a {
     padding:0;
