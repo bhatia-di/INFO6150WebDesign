@@ -4,7 +4,14 @@ Create your own professional portfolio website and add the contents accordingly.
 
 1	Use an external CSS file 
 
+I have created two external files named: imagegallery.css and index.css 
+I have imported the same in the index.html file
+This creates a logical seperation between css properties based on generic versus component level usage
+
+
 2	Use of float/overflow property
+
+I have used float:right to align the navbar towards the right of the navigation panel
 
 3	Use of column layout structure
 
