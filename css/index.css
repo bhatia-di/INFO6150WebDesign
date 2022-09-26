@@ -1,0 +1,58 @@
+
+.float-right {
+    float: right;
+}
+.height-20 {
+    height: 20%;
+}
+
+.font-medium {
+    font-size: medium;
+}
+
+.font-large {
+    font-size: large;
+}
+
+.font-larger {
+    font-size: larger;
+}
+
+.text-align-center {
+    text-align: center;
+}
+.button-theme {
+    background-color: black !important;
+    color: #fff !important;
+    border: none !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 15px !important;
+    min-height: 30px !important;
+    min-width: 120px !important;
+  }
+
+  .button-theme:hover {
+    transition: 0.9s;
+    background-color:#002ead !important;
+}
+
+.a-tag {
+    color: white !important;
+    text-decoration: none !important ;
+}
+  
+  .w-90 {
+    width: 90%;
+} /* Green */
+  
+  .w-80 {width: 80%} 
+
+
+  .w-75 {width: 75%} 
+  .w-70 {width: 70%} 
+  
+  hr.solid {
+    border-top: 3px solid #bbb;
+  }
+  
