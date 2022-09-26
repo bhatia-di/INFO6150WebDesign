@@ -1,0 +1,34 @@
+.navigation-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #6103EE;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .nav-list-item {
+    float: right;
+  }
+  
+  .nav-list-item-anchor {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .nav-list-item-header {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .nav-list-item-anchor:hover {
+    background-color: #111;
+  }
+  
+  
