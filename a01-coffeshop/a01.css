@@ -86,8 +86,13 @@
     padding: 0;
     margin: 0;
     -o-object-fit: cover;
-     object-fit: cover;
+    object-fit: cover;
     -o-object-position: center;
-     object-position: center;
+    object-position: center;
     
+  }
+
+  #founder {
+    height: 80vh;
+    width: 100vw;
   }
