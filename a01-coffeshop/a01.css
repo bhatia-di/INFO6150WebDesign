@@ -72,6 +72,10 @@
     border: 1 px solid white;
     opacity: 0.8;
 }
+.overlay-button:hover {
+    transition-duration: 0.4ms;
+    translate: (1.5);
+}
 
   video {
     position: fixed;
