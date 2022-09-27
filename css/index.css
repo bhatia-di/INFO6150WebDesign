@@ -17,7 +17,10 @@
 .font-larger {
     font-size: larger;
 }
+.font-largest {
 
+    font-size: xxx-large;
+}
 .text-align-center {
     text-align: center;
 }
@@ -55,4 +58,8 @@
   hr.solid {
     border-top: 3px solid #bbb;
   }
-  
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+}  

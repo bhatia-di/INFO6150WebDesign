@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width-device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
 
     <title>coffeshop</title>
     <link rel="stylesheet" href="a01.css" />
@@ -25,13 +25,35 @@
         <ul class="navigation-list">
             <li><a class="nav-list-item-header font-larger" href="#"><b>StarBucks Coffee Shop</b></a></li>
 
-            <li class="nav-list-item"><a class="nav-list-item-anchor" href="#">Home</a></li>
-            <li class="nav-list-item"><a class="nav-list-item-anchor" href="#">Order Coffee</a></li>
             <li class="nav-list-item"><a class="nav-list-item-anchor" href="#">Contact</a></li>
+            <li class="nav-list-item"><a class="nav-list-item-anchor" href="#">Order Coffee</a></li>
+            <li class="nav-list-item"><a class="nav-list-item-anchor" href="#">Home</a></li>
             
         </ul>
 
     </header>
+
+    <section id="welcome">
+       
+        <div class="coffee-welcome-card">
+            
+              
+            <video src="./resources/mixkit-video-sequence-of-the-coffee-preparation-process-4989.mp4" muted loop
+                autoplay></video>
+        </div>
+
+        <div class="overlay flex-column">
+          <div>
+            <h1 class="overlay-text font-largest"><b>Welcome to StarbucksCoffee Shop!</b>
+            </h1>
+          </div>
+          <div>
+            <button type="button" class="overlay-button"><a href="./order.html">Go to Menu</a></button>
+          </div>
+            
+        </div>
+        
+    </section>
 
 
   </body>

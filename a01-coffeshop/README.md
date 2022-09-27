@@ -21,9 +21,15 @@ Create two pages website for a coffee shop or Travel or anything with a Usage of
 
 HTML Tags Used in both pages are listed below:
 
-1. <header>
-2. <ul>/ <li>
-3. Favicon: A favicon is a small image displayed next to the page title in the browser tab.
+1. Favicon: A favicon is a small image displayed next to the page title in the browser tab.
+2. <header>
+3. <ul>/ <li>
+4. <video>
+5. <h1>
+6. <b>
+7. <a>
+8. <button>
+9. 
 
 
 
