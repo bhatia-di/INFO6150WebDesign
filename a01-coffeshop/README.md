@@ -29,7 +29,11 @@ HTML Tags Used in both pages are listed below:
 6. <b>
 7. <a>
 8. <button>
-9. 
+9. <form>
+10. <input>
+11. <textarea>
+12. <label>
+
 
 
 

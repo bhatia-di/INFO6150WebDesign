@@ -39,7 +39,7 @@
   
   
   .overlay {
-    min-height: 100vh;
+    min-height: 79vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -78,7 +78,7 @@
 }
 
   video {
-    position: fixed;
+    position: absolute;
     top: 97px;
     left: 0;
     width: 100%;
@@ -92,7 +92,43 @@
     
   }
 
-  #founder {
-    height: 80vh;
+  .founder {
+    height: 100vh;
     width: 100vw;
+  }
+  .margin-1 {
+    margin: 1%;
+
+  }
+
+  .padding-1 {
+    margin: 1%;
+    
+  }
+
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+  }
+  
+  input[type=submit] {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .container {
+    border-radius: 5px;
+    padding: 20px;
   }
