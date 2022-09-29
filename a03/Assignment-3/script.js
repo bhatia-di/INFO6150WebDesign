@@ -166,11 +166,16 @@ addStudentButton.onclick = () => {
   
       mainTable.appendChild(newMainRow);
       mainTable.appendChild(detailedRow);
-      deleteColHide();
-      deleteEditColHide();
+      addEditColumn();
+
+      newMainRow.getElementsByClassName("deleteCol")[0].style.display = "none";
+      newMainRow.getElementsByClassName("editCol")[0].style.display = "none";
+
+
+      // deleteColHide();
+      // deleteEditColHide();
       expandWhenImgClicked();
       addBackgroundAndColumnsWhenCheckboxIsSelected();
-      addEditColumn()
       alert("Student Details recorded successfully");
 
 };
