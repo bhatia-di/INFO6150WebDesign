@@ -21,11 +21,10 @@ var t = new Title("CONNECT WITH ME!");
  * All Elements
  */
  const dropDownTextAreaCollection = document.getElementsByClassName("dropDownTextArea");
- const deleteColCollection = document.getElementsByClassName("deleteCol");
+
  const submit = document.getElementById("button");
  const addStudentButton = document.getElementById("add");
  const mainTable = document.getElementById("myTable");
- const mainRowCollection = document.getElementsByClassName("mainRow");
 
 
 /**
@@ -45,15 +44,32 @@ collapaseAll();
  * Adding edit column tr and display to be none
  */
 function addEditColumn () {
-  var editCol = document.createElement("td");
-  editCol.className = "editCol";
-  editCol.style.display = "none";
+  let mainRowCollection = document.getElementsByClassName("mainRow");
 
   for(let i = 0; i < mainRowCollection.length; i++ ) {
 
     if(mainRowCollection[i].getElementsByClassName("editCol").length === 0) {
-      mainRowCollection[i].appendChild(editCol);
+
+      var newCell = mainRowCollection[i].insertCell(9);
+      newCell.setAttribute("class", "editCol");
+
+      var newEditButton = document.createElement("button");
+      newEditButton.setAttribute("class", "editBtn");
+      newEditButton.innerText = "Edit";
+      newCell.style.display = "inherit";
+
+      newCell.appendChild(newEditButton);
+
     }
+
+    if(mainRowCollection[i].getElementsByClassName("deleteCol")[0].getElementsByTagName("button").length === 0) {
+      var newDeleteButton = document.createElement("button");
+      newDeleteButton.setAttribute("class", "deleteBtn");
+      newDeleteButton.innerText = "Delete";
+      newDeleteButton.style.display = "inherit";
+      mainRowCollection[i].getElementsByClassName("deleteCol")[0].appendChild(newDeleteButton);
+    }
+
 
   }
 }
@@ -62,18 +78,35 @@ addEditColumn();
 
 function deleteColHide() {
   document.getElementById("deleteHeader").style.display = "none";
+  const deleteColCollection = document.getElementsByClassName("deleteCol");
+
   for(let i = 0; i < deleteColCollection.length; i++ ) {
     deleteColCollection[i].style.display = "none";
   }
 }
 function deleteEditColHide() {
   document.getElementById("editHeader").style.display = "none";
+  const editColCollection = document.getElementsByClassName("editCol");
+
+  for(let i = 0; i < editColCollection.length; i++ ) {
+    editColCollection[i].style.display = "none";
+  }
 }
 function showEditColHide() {
   document.getElementById("editHeader").style.display = "table-cell";
+  // const editColCollection = document.getElementsByClassName("editCol");
+
+  // for(let i = 1; i < editColCollection.length; i++ ) {
+  //   editColCollection[i].style.display = "table-cell";
+  // }
 }
 function showdeleteColHide() {
   document.getElementById("deleteHeader").style.display = "table-cell";
+  // const deleteColCollection = document.getElementsByClassName("deleteCol");
+  // for(let i = 1; i < deleteColCollection.length; i++ ) {
+  //   deleteColCollection[i].style.display = "table-cell";
+  // }
+
 }
 
 deleteColHide();
@@ -137,6 +170,7 @@ addStudentButton.onclick = () => {
       deleteEditColHide();
       expandWhenImgClicked();
       addBackgroundAndColumnsWhenCheckboxIsSelected();
+      addEditColumn()
       alert("Student Details recorded successfully");
 
 };
@@ -180,12 +214,23 @@ function addBackgroundAndColumnsWhenCheckboxIsSelected() {
       if (inputCollection[i].checked) {
         mainRowCollection[i].style.backgroundColor = "yellow";
         submit.disabled = false;
-        showdeleteColHide();
         showEditColHide();
+        showdeleteColHide();
+
+        const selectedDelete = mainRowCollection[i].getElementsByClassName("deleteCol")[0];
+        selectedDelete.style.display = "table-cell";
+
+        const selectedEdit = mainRowCollection[i].getElementsByClassName("editCol")[0];
+        selectedEdit.style.display = "table-cell";
         
 
       } else {
         mainRowCollection[i].style.backgroundColor = "white";
+        const selectedDelete = mainRowCollection[i].getElementsByClassName("deleteCol")[0];
+        selectedDelete.style.display = "none";
+
+        const selectedEdit = mainRowCollection[i].getElementsByClassName("editCol")[0];
+        selectedEdit.style.display = "none  ";
         /** is any input checked - then disabled */
         var isANYChecked = false;
         for (let i = 0; i < inputCollection.length; i++) {
