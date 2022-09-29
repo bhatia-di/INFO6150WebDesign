@@ -71,13 +71,6 @@ function addEditColumn () {
       newDeleteButton.setAttribute("class", "deleteBtn");
       newDeleteButton.innerText = "Delete";
       newDeleteButton.style.display = "inherit";
-      newDeleteButton.onclick = () => {
-        mainRowCollection[i].remove();
-        dropDownCollection[i].remove();
-        disableCheckBox();
-        addBackgroundAndColumnsWhenCheckboxIsSelected();
-        addEditColumn();
-        }
       mainRowCollection[i].getElementsByClassName("deleteCol")[0].appendChild(newDeleteButton);
     }
 
@@ -85,6 +78,26 @@ function addEditColumn () {
   }
 }
 addEditColumn();
+
+
+function deleteOnClick () {
+  let mainRowCollection = document.getElementsByClassName("mainRow");
+  let dropDownCollection = document.getElementsByClassName("dropDownTextArea");
+  let deleteBtnCollection = document.getElementsByClassName("deleteBtn");
+
+  for(let i=0; i<deleteBtnCollection.length; i++) {
+
+    deleteBtnCollection[i].onclick = () => {
+      mainRowCollection[i].remove();
+      dropDownCollection[i].remove();
+      disableCheckBox();
+      addBackgroundAndColumnsWhenCheckboxIsSelected();
+      deleteOnClick();
+      }
+
+  }
+}
+deleteOnClick();
 
 
 function deleteColHide() {
@@ -145,10 +158,15 @@ addStudentButton.onclick = () => {
   const mainRowLength = mainRows.length;
 
   const lastmainRow = mainRows[mainRowLength - 1];
-  const studentNumber = lastmainRow.getElementsByTagName("td")[1].innerText;
-  console.log(studentNumber);
-  const newStudentNumber = parseInt(studentNumber.replace('Student ', '')) + 1;
 
+  var newStudentNumber = 1;
+  if (mainRowLength > 0) {
+    const studentNumber = lastmainRow.getElementsByTagName("td")[1].innerText;
+    console.log(studentNumber);
+    newStudentNumber = parseInt(studentNumber.replace('Student ', '')) + 1;
+  
+  
+  } 
 
   var newMainRow = document.createElement("tr");
   newMainRow.setAttribute("class", "mainRow");
@@ -188,11 +206,15 @@ addStudentButton.onclick = () => {
       newMainRow.getElementsByClassName("deleteCol")[0].style.display = "none";
       newMainRow.getElementsByClassName("editCol")[0].style.display = "none";
 
+      if (newStudentNumber === 1) {
+        deleteColHide();
+        deleteEditColHide();
+      }
 
-      // deleteColHide();
-      // deleteEditColHide();
+      
       expandWhenImgClicked();
       addBackgroundAndColumnsWhenCheckboxIsSelected();
+      deleteOnClick();
       alert("Student Details recorded successfully");
 
 };
