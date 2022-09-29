@@ -45,6 +45,7 @@ collapaseAll();
  */
 function addEditColumn () {
   let mainRowCollection = document.getElementsByClassName("mainRow");
+  let dropDownCollection = document.getElementsByClassName("dropDownTextArea");
 
   for(let i = 0; i < mainRowCollection.length; i++ ) {
 
@@ -56,6 +57,9 @@ function addEditColumn () {
       var newEditButton = document.createElement("button");
       newEditButton.setAttribute("class", "editBtn");
       newEditButton.innerText = "Edit";
+      newEditButton.onclick = () => {
+        alert("edit selected details")
+      }
       newCell.style.display = "inherit";
 
       newCell.appendChild(newEditButton);
@@ -67,6 +71,13 @@ function addEditColumn () {
       newDeleteButton.setAttribute("class", "deleteBtn");
       newDeleteButton.innerText = "Delete";
       newDeleteButton.style.display = "inherit";
+      newDeleteButton.onclick = () => {
+        mainRowCollection[i].remove();
+        dropDownCollection[i].remove();
+        disableCheckBox();
+        addBackgroundAndColumnsWhenCheckboxIsSelected();
+        addEditColumn();
+        }
       mainRowCollection[i].getElementsByClassName("deleteCol")[0].appendChild(newDeleteButton);
     }
 
@@ -131,14 +142,20 @@ submit.disabled = true;
 addStudentButton.onclick = () => {
 
   const mainRows = document.getElementsByClassName("mainRow");
-  const mainRowLength = mainRows.length + 1;
+  const mainRowLength = mainRows.length;
+
+  const lastmainRow = mainRows[mainRowLength - 1];
+  const studentNumber = lastmainRow.getElementsByTagName("td")[1].innerText;
+  console.log(studentNumber);
+  const newStudentNumber = parseInt(studentNumber.replace('Student ', '')) + 1;
+
 
   var newMainRow = document.createElement("tr");
   newMainRow.setAttribute("class", "mainRow");
   newMainRow.innerHTML = `
       <td><input type="checkbox" /><br /><br /><img src="down.png" width="25px" /></td>
-			<td>Student ${mainRowLength}</td>
-			<td>Teacher ${mainRowLength}</td>
+			<td>Student ${newStudentNumber}</td>
+			<td>Teacher ${newStudentNumber}</td>
 			<td>Approved</td>
 			<td>Fall</td>
 			<td>TA</td>
@@ -258,6 +275,56 @@ function addBackgroundAndColumnsWhenCheckboxIsSelected() {
 
 }
 addBackgroundAndColumnsWhenCheckboxIsSelected();
+
+function disableCheckBox () {
+  var inputCollection = document.getElementsByTagName("input");
+  
+  if(inputCollection.length === 0) {
+    submit.disabled = true;
+    return;
+  }
+  for(let i = 0; i < inputCollection.length; i++ ) {
+        var isANYChecked = false;
+
+        if(inputCollection[i].checked) {
+          isANYChecked = true;
+            break;
+
+        }
+
+        if (isANYChecked === false) {
+          submit.disabled = true;
+          deleteColHide();
+          deleteEditColHide();
+        } 
+  }
+
+}
+
+// /***
+//  * 
+//  * Add edit and delete onclick events
+//  * 
+//  */
+// function addEditDeleteOnClick () {
+
+//   var deleteColCollection = document.getElementsByClassName("deleteCol");
+
+//   for(let i = 1; i < deleteColCollection.length; i++ ) {
+//     deleteColCollection[i].onclick = () => {
+//       deleteElementAtIndex();
+//     }
+//   }
+// }
+
+// addEditDeleteOnClick();
+
+// function deleteElementAtIndex (index) {
+//   var mainRowCollection = document.getElementsByClassName("mainRow")[index-1];
+//   mainRowCollection.remove();
+//   var dropDownTA = document.getElementsByClassName("dropDownTextArea")[index-1];
+//   dropDownTA.remove();
+// }
 
 
 
