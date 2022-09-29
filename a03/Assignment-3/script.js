@@ -40,12 +40,20 @@ function collapaseAll() {
 
 collapaseAll(); 
 function deleteColHide() {
-  for (let i = 0; i < deleteColCollection.length; i++) {
-    deleteColCollection[i].style.display = "none";
-  }
-  
+  document.getElementById("deleteHeader").style.display = "none";
 }
+function deleteEditColHide() {
+  document.getElementById("deleteHeader").style.display = "none";
+}
+function showEditColHide() {
+  document.getElementById("deleteHeader").style.display = "block";
+}
+function showdeleteColHide() {
+  document.getElementById("deleteHeader").style.display = "block";
+}
+
 deleteColHide();
+deleteEditColHide();
 /**
  * Requirement 2:
  * 2.	2.	Submit button to be disabled and grayed out and it should not be clickable
@@ -102,6 +110,7 @@ addStudentButton.onclick = () => {
       mainTable.appendChild(newMainRow);
       mainTable.appendChild(detailedRow);
       deleteColHide();
+      deleteEditColHide();
       expandWhenImgClicked();
       addBackgroundAndColumnsWhenCheckboxIsSelected();
       alert("Student Details recorded successfully");
@@ -147,6 +156,8 @@ function addBackgroundAndColumnsWhenCheckboxIsSelected() {
       if (inputCollection[i].checked) {
         mainRowCollection[i].style.backgroundColor = "yellow";
         submit.disabled = false;
+        showdeleteColHide();
+        showEditColHide();
         
 
       } else {
@@ -163,6 +174,8 @@ function addBackgroundAndColumnsWhenCheckboxIsSelected() {
 
         if (isANYChecked === false) {
           submit.disabled = true;
+          deleteColHide();
+          deleteEditColHide();
         }
       }
   
