@@ -147,6 +147,7 @@ function addBackgroundAndColumnsWhenCheckboxIsSelected() {
       if (inputCollection[i].checked) {
         mainRowCollection[i].style.backgroundColor = "yellow";
         submit.disabled = false;
+        
 
       } else {
         mainRowCollection[i].style.backgroundColor = "white";
