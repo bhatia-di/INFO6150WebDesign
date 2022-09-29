@@ -9,6 +9,25 @@
     width: 100%;
   }
 
+  .addtocart {
+    background-color: green;
+    color: wheat;
+  }
+
+  #navigationPanel {
+    z-index: 1000;
+  }
+
+  #menu {
+    z-index: 1;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    overflow: scroll;
+    height: 100%;
+  }
+
   body {
     margin: 0;
     padding: 0;
@@ -132,3 +151,11 @@
     border-radius: 5px;
     padding: 20px;
   }
+
+ td {
+  text-align: center;
+  margin-top: 5px;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+
+ }

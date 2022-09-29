@@ -34,6 +34,14 @@ HTML Tags Used in both pages are listed below:
 11. <textarea>
 12. <label>
 
+HTML Tags used in the order.htm page
+
+1. <audio>
+2. <table>
+3. <tr>
+4. <th>
+5. <img>
+
 
 
 
