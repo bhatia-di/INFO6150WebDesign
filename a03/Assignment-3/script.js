@@ -27,6 +27,9 @@ var t = new Title("CONNECT WITH ME!");
  const mainTable = document.getElementById("myTable");
 
 
+ submit.onclick = () => {
+  alert("Successfully submited records.");
+ }
 /**
  * Requirement 1:
  * 1.	Table should not be expanded when page loads
@@ -58,7 +61,7 @@ function addEditColumn () {
       newEditButton.setAttribute("class", "editBtn");
       newEditButton.innerText = "Edit";
       newEditButton.onclick = () => {
-        alert("edit selected details")
+        prompt(`Edit selected details`);
       }
       newCell.style.display = "inherit";
 
@@ -88,14 +91,26 @@ function deleteOnClick () {
   for(let i=0; i<deleteBtnCollection.length; i++) {
 
     deleteBtnCollection[i].onclick = () => {
+
+      var studentNumber = mainRowCollection[i].getElementsByTagName("td")[1].innerText;
+      var message = "Student record for " + studentNumber + " is deleted";
       mainRowCollection[i].remove();
       dropDownCollection[i].remove();
+      alert(message);
       disableCheckBox();
       addBackgroundAndColumnsWhenCheckboxIsSelected();
       deleteOnClick();
       }
 
   }
+  mainRowCollection = document.getElementsByClassName("mainRow");
+  if(mainRowCollection.length === 0) {
+    document.getElementById("warning").innerText = "Please note: You have deleted all student records.";
+
+  } else {
+    document.getElementById("warning").innerText = "";
+  }
+
 }
 deleteOnClick();
 
@@ -164,7 +179,6 @@ addStudentButton.onclick = () => {
     const studentNumber = lastmainRow.getElementsByTagName("td")[1].innerText;
     console.log(studentNumber);
     newStudentNumber = parseInt(studentNumber.replace('Student ', '')) + 1;
-  
   
   } 
 
