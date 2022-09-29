@@ -25,6 +25,7 @@ var t = new Title("CONNECT WITH ME!");
  const submit = document.getElementById("button");
  const addStudentButton = document.getElementById("add");
  const mainTable = document.getElementById("myTable");
+ const mainRowCollection = document.getElementsByClassName("mainRow");
 
 
 /**
@@ -39,17 +40,40 @@ function collapaseAll() {
 }
 
 collapaseAll(); 
+
+/**
+ * Adding edit column tr and display to be none
+ */
+function addEditColumn () {
+  var editCol = document.createElement("td");
+  editCol.className = "editCol";
+  editCol.style.display = "none";
+
+  for(let i = 0; i < mainRowCollection.length; i++ ) {
+
+    if(mainRowCollection[i].getElementsByClassName("editCol").length === 0) {
+      mainRowCollection[i].appendChild(editCol);
+    }
+
+  }
+}
+addEditColumn();
+
+
 function deleteColHide() {
   document.getElementById("deleteHeader").style.display = "none";
+  for(let i = 0; i < deleteColCollection.length; i++ ) {
+    deleteColCollection[i].style.display = "none";
+  }
 }
 function deleteEditColHide() {
-  document.getElementById("deleteHeader").style.display = "none";
+  document.getElementById("editHeader").style.display = "none";
 }
 function showEditColHide() {
-  document.getElementById("deleteHeader").style.display = "block";
+  document.getElementById("editHeader").style.display = "table-cell";
 }
 function showdeleteColHide() {
-  document.getElementById("deleteHeader").style.display = "block";
+  document.getElementById("deleteHeader").style.display = "table-cell";
 }
 
 deleteColHide();
