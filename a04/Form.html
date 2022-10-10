@@ -13,6 +13,9 @@
       main{
           padding: 50px;
       }
+	  input {
+		margin-bottom: 5px;
+	  }
 	 
   </style>
  </head>
@@ -24,7 +27,7 @@
 	 <h3>Love something? Hate something? Let us know!</h3>
 		 Note : Fields marked with an asterisk(*) are mandatory
 		 <br><br>
-		 <form method="post" novalidate>
+		 <form method="post" novalidate onsubmit="return false">
 			<label>Title*:</label>
 			<input type="radio" name="title" id="miss" value="miss" required="required"/>Miss
 			<input type="radio" name="title" id="mr" value="mr" required="required"/>Mr.
@@ -36,7 +39,7 @@
 
 
 			<label for="firstName">First Name*:</label>
-			<input type="text" name="firstName" id="firstName" placeholder="First Name" onblur="validate"/>	
+			<input type="text" name="firstName" id="firstName" placeholder="First Name" onblur="validateFirstName(this)"/>	
 			<div id = "errorFirstName" style="display: none; color: red;">
 				Please add a valid first name
 			</div>
@@ -44,7 +47,7 @@
 			
 
 			<label for="lastName">Last Name*:</label>
-			<input type="text" name="lastName" id="lastName" placeholder="Last Name" />
+			<input type="text" name="lastName" id="lastName" placeholder="Last Name" onblur="validateLastName(this)" />
 			<div id = "errorLastName" style="display: none; color: red;">
 				Please add a valid last name
 			</div>
@@ -52,7 +55,7 @@
 			
 
 			<label for="emailId">Email Id*:</label>
-			<input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" />
+			<input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" onblur="validateEmail(this)" />
 			<div id = "errorEmail" style="display: none; color: red;">
 				Please add a valid email id
 			</div>
@@ -60,7 +63,7 @@
 			
 
 			<label for="phoneNumber">Phone Number*:</label>
-			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" />
+			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" onblur="validatePhone(this)" />
 			<div id = "errorphonenumber" style="display: none; color: red;">
 				Please add a valid phone number
 			</div>
@@ -85,7 +88,7 @@
 			<br><br>
 			
             <label for="zipcode">ZipCode*:</label>
-			<input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" />
+			<input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" onblur="validateZipCode(this)" />
 			<br><br>
 			<div id = "errorzipcode" style="display: none; color: red;">
 				Please add a valid zipcode
@@ -101,8 +104,8 @@
 			<label for="comments">Comments*:</label>
 			<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25"></textarea>
 			<br><br>
-			<button id="submit"> Submit </button>
-			<button id="reset"> Reset </button>
+			<button id="submit" onclick="onSubmit()"> Submit </button>
+			<button id="reset" onclick="onReset()"> Reset </button>
 			<br><br>
 		 </form>
 	 </main>

@@ -36,7 +36,7 @@ function validateEmail(object) {
 
     const regExEmail = /^\w+([\.-]?\w+)*@northeastern.edu$/;
 
-    const errorBlockID = "errorLastName";
+    const errorBlockID = "errorEmail";
 
     if(!object.value.trim().match(regExEmail)) {
         object.style.border = "2px solid red";
@@ -49,20 +49,12 @@ function validateEmail(object) {
 };
 
 
-function validatePhone(phoneNumberObject) {
-
-
-    if (!phoneRegex.test(phoneNumberStr)) {
-       console.log("Invalid phone number");
-    } else {
-        console.log("valid phone number");
-    }
-
+function validatePhone(object) {
 
     const phoneRegex = '^[0-9]{3}-[0-9]{3}-[0-9]{4}$';
     const errorBlockID = "errorphonenumber";
 
-    if(!phoneNumberObject.value.trim().match(regExName)) {
+    if(!object.value.trim().match(phoneRegex)) {
         object.style.border = "2px solid red";
         document.getElementById(errorBlockID).style.display = "block";
         object.value = "";
@@ -74,14 +66,19 @@ function validatePhone(phoneNumberObject) {
 };
 
 
-function validateZipCode(zipcodeStr) {
+function validateZipCode(object) {
 
     const zipRegex = '^\d{5}(?:[-\s]\d{4})?$';
 
-    if (!zipRegex.test(zipcodeStr)) {
-       console.log("Invalid regex");
+    const errorBlockID = "errorzipcode";
+
+    if(!object.value.trim().match(zipRegex)) {
+        object.style.border = "2px solid red";
+        document.getElementById(errorBlockID).style.display = "block";
+        object.value = "";
     } else {
-        console.log("valid regex");
+        object.style.border = "";
+        document.getElementById(errorBlockID).style.display = "none";
     }
 
 
@@ -93,9 +90,37 @@ document.getElementById("submit").onclick = onSubmit;
 function onSubmit() {
 
 
-    checkIfAllRequiredFieldsAreSet();
-    return true;
+    const isValidate = checkIfAllRequiredFieldsAreSet();
+    if (isValidate) {
+        alert("Please fill all the required details marked as asterisk.");
+    } else {
+        // proceed with execution
+
+
+
+        // ends with reset 
+        onReset()
+
+    }
    
+
+}
+
+function onReset() {
+
+    resetTitle();
+    document.getElementsByName("firstName")[0].value = "";
+    document.getElementsByName("lastName")[0].value = "";
+    document.getElementsByName("emailId")[0].value = "";
+    document.getElementsByName("phoneNumber")[0].value = "";
+    document.getElementsByName("zipcode")[0].value = "";
+  
+    document.getElementById("streetAddress1").value = "";
+    document.getElementById("city").value = "";
+    document.getElementById("state").value = "";
+    document.getElementById("zipcode").value = "";
+    resetSource();
+    document.getElementById("comments").value = "";
 
 }
 
@@ -119,11 +144,14 @@ function checkIfAllRequiredFieldsAreSet() {
         console.log(title, state, zipcode, source, comments, firstname, lastname, emailAddress, phone, addinfo, source);
         if(title =="" || firstname ==""|| lastname ==""|| emailAddress ==""|| phone ==""|| zipcode ==""||
         text ==""||addinfo =="" || city =="" || state =="" || source == "" ){
-            alert("Please fill all the required details marked as asterisk.");
+            return true;
+        } else {
+            return false;
         }
     }
  catch (e) {
     console.log(e);
+    return true;
    
  }   
 }
@@ -155,6 +183,17 @@ function validateTitle() {
     return isAnyTitleChecked;
 }
 
+function resetTitle() {
+
+    const inputSourceCollection = document.getElementsByName('title');
+
+    for (var i =0; i<inputSourceCollection.length; i++) {
+        inputSourceCollection[i].checked = false;
+    }
+
+
+}
+
 
 function validateSource() {
 
@@ -171,6 +210,25 @@ function validateSource() {
 
 
     return isAnyTitleChecked;
+}
+
+function resetSource() {
+
+    const inputSourceCollection = document.getElementsByName('source');
+
+    for (var i =0; i<inputSourceCollection.length; i++) {
+        inputSourceCollection[i].checked = false;
+    }
+
+    document.getElementById('errorTitle').style.display = 'none';
+    document.getElementById('errorFirstName').style.display = 'none';
+    document.getElementById('errorLastName').style.display = 'none';
+    document.getElementById('errorEmail').style.display = 'none';
+    document.getElementById('errorphonenumber').style.display = 'none';
+    document.getElementById('errorzipcode').style.display = 'none';
+    document.getElementById('source').style.display = 'none';
+
+
 }
 
 
