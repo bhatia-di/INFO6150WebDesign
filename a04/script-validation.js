@@ -101,13 +101,49 @@ function onSubmit() {
         var row1 = table.insertRow(-1);
         var cell1 = row1.insertCell(0);
         var cell2 = row1.insertCell(1);
-        cell1.innerText = "First Name";
-        cell1.innerText = "blah";
+        cell1.innerText = "Full Name";
+        cell2.innerText = document.getElementsByName("firstName")[0].value + " " + document.getElementsByName("lastName")[0].value;
 
+
+        var row2 = table.insertRow(-1);
+        var cell2A = row2.insertCell(0);
+        var cell2B = row2.insertCell(1);
+        cell2A.innerText = "Contact Info";
+        cell2B.innerText = "Email " +  document.getElementsByName("emailId")[0].value + " Phone No" + document.getElementsByName("phoneNumber")[0];;
+
+
+        var row3 = table.insertRow(-1);
+        var cell3A = row3.insertCell(0);
+        var cell3B = row3.insertCell(1);
+        cell3A.innerText = "Address";
+        cell3B.innerText = document.getElementById("streetAddress1").value + " " +
+        document.getElementById("city").value + " " +
+        document.getElementById("state").value + " " +
+        document.getElementById("zipcode").value;
+
+        var row4 = table.insertRow(-1);
+        var cell4A = row4.insertCell(0);
+        var cell4B = row4.insertCell(1);
+        cell4A.innerText = "Drink Information";
+        cell4B.innerText = validateDrinkName();
+
+
+        var row5 = table.insertRow(-1);
+        var cell5A = row5.insertCell(0);
+        var cell5B = row5.insertCell(1);
+        cell5A.innerText = "Source";
+        cell5B.innerText = validateSource();
+
+
+        var row6 = table.insertRow(-1);
+        var cell6A = row6.insertCell(0);
+        var cell6B = row6.insertCell(1);
+        cell6A.innerText = "Comments";
+        cell6B.innerText = document.getElementById("comments").value;
 
         // display true
         table.style.display = "block";
-        
+
         // ends with reset 
         onReset()
 
