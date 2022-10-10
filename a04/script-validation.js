@@ -1,17 +1,5 @@
 
 
-function validateEmail(emailStr) {
-
-    const emailRegex = /^\w+([\.-]?\w+)*@northeastern.edu$/;
-
-    if (!emailRegex.test(emailStr)) {
-       console.log("Invalid email");
-    } else {
-        console.log("valid email");
-    }
-
-
-};
 
 function validateFirstName(fnameObject) {
 
@@ -23,6 +11,38 @@ function validateFirstName(fnameObject) {
         document.getElementById(errorBlockID).style.display = "block";
     } else {
         fnameObject.style.border = "";
+        document.getElementById(errorBlockID).style.display = "none";
+    }
+
+};
+
+function validateLastName(object) {
+
+    var regExLastName = /^[a-zA-Z]+$/;
+    const errorBlockID = "errorLastName";
+
+    if(!object.value.trim().match(regExLastName)) {
+        object.style.border = "2px solid red";
+        document.getElementById(errorBlockID).style.display = "block";
+    } else {
+        object.style.border = "";
+        document.getElementById(errorBlockID).style.display = "none";
+    }
+
+};
+
+
+function validateEmail(object) {
+
+    const regExEmail = /^\w+([\.-]?\w+)*@northeastern.edu$/;
+
+    const errorBlockID = "errorLastName";
+
+    if(!object.value.trim().match(regExEmail)) {
+        object.style.border = "2px solid red";
+        document.getElementById(errorBlockID).style.display = "block";
+    } else {
+        object.style.border = "";
         document.getElementById(errorBlockID).style.display = "none";
     }
 
