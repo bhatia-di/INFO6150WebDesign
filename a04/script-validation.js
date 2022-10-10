@@ -89,8 +89,11 @@ function onSubmit() {
 
 
     const isValidate = checkIfAllRequiredFieldsAreSet();
+    const checkNoErrorBlocks = checkIfAllErrorBlocksAreCleared();
     if (isValidate) {
         alert("Please fill all the required details marked as asterisk.");
+    } else if(checkNoErrorBlocks){
+        alert("Please resolve all errors");
     } else {
         // proceed with execution
 
@@ -109,7 +112,7 @@ function onSubmit() {
         var cell2A = row2.insertCell(0);
         var cell2B = row2.insertCell(1);
         cell2A.innerText = "Contact Info";
-        cell2B.innerText = "Email " +  document.getElementsByName("emailId")[0].value + " Phone No" + document.getElementsByName("phoneNumber")[0];;
+        cell2B.innerText = "Email " +  document.getElementsByName("emailId")[0].value + " Phone No" + document.getElementsByName("phoneNumber")[0].value;
 
 
         var row3 = table.insertRow(-1);
@@ -151,6 +154,22 @@ function onSubmit() {
    
 
 }
+
+function checkIfAllErrorBlocksAreCleared() {
+
+   var divCollection = document.getElementsByTagName("main")[0].getElementsByTagName("div");
+   var isErrorVisible = false;
+   for (var i = 0; i < divCollection.length; i++) {
+    if (divCollection[i].style.display === "block") {
+        isErrorVisible = true;
+        return true;
+    }
+   }
+   return isErrorVisible;
+
+
+}
+
 
 function onReset() {
 
@@ -208,7 +227,7 @@ function checkIfAllRequiredFieldsAreSet() {
     
         console.log(title, state, zipcode, source, comments, firstname, lastname, emailAddress, phone, addinfo, source);
         if(title =="" || firstname ==""|| lastname ==""|| emailAddress ==""|| phone ==""|| zipcode ==""||
-        addinfo =="" || city =="" || state =="" || source == "" ){
+        addinfo =="" || city =="" || state =="" || source == "" || drinkName == ""){
             return true;
         } else {
             return false;
