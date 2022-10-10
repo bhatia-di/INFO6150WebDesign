@@ -57,7 +57,6 @@ function validatePhone(object) {
     if(!object.value.trim().match(phoneRegex)) {
         object.style.border = "2px solid red";
         document.getElementById(errorBlockID).style.display = "block";
-        object.value = "";
     } else {
         object.style.border = "";
         document.getElementById(errorBlockID).style.display = "none";
@@ -75,7 +74,6 @@ function validateZipCode(object) {
     if(!object.value.trim().match(zipRegex)) {
         object.style.border = "2px solid red";
         document.getElementById(errorBlockID).style.display = "block";
-        object.value = "";
     } else {
         object.style.border = "";
         document.getElementById(errorBlockID).style.display = "none";
@@ -108,6 +106,8 @@ function onSubmit() {
 
 function onReset() {
 
+    //reseting alues
+
     resetTitle();
     document.getElementsByName("firstName")[0].value = "";
     document.getElementsByName("lastName")[0].value = "";
@@ -121,6 +121,23 @@ function onReset() {
     document.getElementById("zipcode").value = "";
     resetSource();
     document.getElementById("comments").value = "";
+    document.getElementById("coffee").selectedIndex = -1;
+    resetCoffeeSize();
+    document.getElementById("additionalInstructions").value = "";
+
+
+    //restting error blocks
+    
+    document.getElementById('errorTitle').style.display = 'none';
+    document.getElementById('errorFirstName').style.display = 'none';
+    document.getElementById('errorLastName').style.display = 'none';
+    document.getElementById('errorEmail').style.display = 'none';
+    document.getElementById('errorphonenumber').style.display = 'none';
+    document.getElementById('errorzipcode').style.display = 'none';
+    document.getElementById('source').style.display = 'none';
+    
+ 
+
 
 }
 
@@ -140,10 +157,11 @@ function checkIfAllRequiredFieldsAreSet() {
         var zipcode =  document.getElementById("zipcode").value;
         var source = validateSource();
         var comments =  document.getElementById("comments").value;
+        var drinkName = validateDrinkName();
     
         console.log(title, state, zipcode, source, comments, firstname, lastname, emailAddress, phone, addinfo, source);
         if(title =="" || firstname ==""|| lastname ==""|| emailAddress ==""|| phone ==""|| zipcode ==""||
-        text ==""||addinfo =="" || city =="" || state =="" || source == "" ){
+        addinfo =="" || city =="" || state =="" || source == "" ){
             return true;
         } else {
             return false;
@@ -156,7 +174,83 @@ function checkIfAllRequiredFieldsAreSet() {
  }   
 }
 
+function validateDrinkName() {
 
+    var drinkname = document.getElementById("coffee").value;
+    var size = checkCoffeeSize();
+    var addInst = document.getElementById("additionalInstructions").value;
+
+    if(drinkname == "" || size == "" || addInst == "") {
+        alert("please fill drink details correctly");
+        return "";
+    } else {
+        return drinkname + " " + size + " " + addInst;
+    }
+
+}
+
+function checkCoffeeSize() {
+
+ 
+    const inputSourceCollection = document.getElementsByName('coffeSize');
+    var isAnyTitleChecked = "";
+
+    for (var i =0; i<inputSourceCollection.length; i++) {
+        var isChecked = inputSourceCollection[i].checked;
+        if (isChecked) {
+            isAnyTitleChecked = inputSourceCollection[i].value;
+            break;
+        }
+    }
+
+
+    return isAnyTitleChecked;
+
+
+}
+
+function afterDropdownSelectEvent() {
+
+    var selectedIndex = document.getElementById("coffee").selectedIndex;
+
+    if(selectedIndex > 0) {
+        document.getElementById("coffeeExpanded").style.display = "block";
+        document.getElementById("errorCoffeeSize").style.display = "block";
+    } else {
+        document.getElementById("coffeeExpanded").style.display = "none";
+   
+    }
+}
+
+
+function validateCoffeeSize(inputObj) {
+    if (inputObj.checked) {
+        document.getElementById("cofeeSizeExpanded").style.display = "block";
+        document.getElementById("errorCoffeeSize").style.display = "none";
+        document.getElementById("errorAddInstructions").style.display = "block";
+
+        
+    } else {
+        document.getElementById("cofeeSizeExpanded").style.display = "none";
+    }
+
+
+}
+
+function validateAddInst() {
+
+    if (document.getElementById("additionalInstructions").value.length === 0) {
+        document.getElementById("errorAddInstructions").style.display = "block";
+
+    } else {
+        document.getElementById("errorAddInstructions").style.display = "none";
+
+
+    }
+
+
+
+}
 function validateForm() {
 
     
@@ -220,13 +314,16 @@ function resetSource() {
         inputSourceCollection[i].checked = false;
     }
 
-    document.getElementById('errorTitle').style.display = 'none';
-    document.getElementById('errorFirstName').style.display = 'none';
-    document.getElementById('errorLastName').style.display = 'none';
-    document.getElementById('errorEmail').style.display = 'none';
-    document.getElementById('errorphonenumber').style.display = 'none';
-    document.getElementById('errorzipcode').style.display = 'none';
-    document.getElementById('source').style.display = 'none';
+
+}
+
+function resetCoffeeSize() {
+
+    const inputSourceCollection = document.getElementsByName('coffeSize');
+
+    for (var i =0; i<inputSourceCollection.length; i++) {
+        inputSourceCollection[i].checked = false;
+    }
 
 
 }

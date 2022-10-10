@@ -13,7 +13,7 @@
       main{
           padding: 50px;
       }
-	  input {
+	  input,select,textarea {
 		margin-bottom: 5px;
 	  }
 	 
@@ -72,28 +72,71 @@
 			<label for="streetAddress1">Street Address 1*:</label>
 			<input type="text" name="streetAddress1" id="streetAddress1" placeholder="address" />
 			<br/>
-			<br/>
+			
 			
 
 			<label for="streetAddress2">Street Address 2:</label>
 			<input type="text" name="streetAddress2" id="streetAddress2" placeholder="address" />
-			<br><br>
+			<br>
 
 			<label for="city">City*:</label>
 			<input type="text" name="city" id="city" placeholder="city" />
-			<br><br>
+			<br>
 
 			<label for="state">State*:</label>
 			<input type="text" name="state" id="state" placeholder="state" />
-			<br><br>
+			<br>
 			
             <label for="zipcode">ZipCode*:</label>
 			<input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" onblur="validateZipCode(this)" />
-			<br><br>
+			<br>
 			<div id = "errorzipcode" style="display: none; color: red;">
 				Please add a valid zipcode
 			</div>
 			<br/>
+
+			<label for="coffee">Choose Your Favorite Drink*: </label>
+
+			<select name="coffee" class="coffee" id="coffee" onchange="afterDropdownSelectEvent()">
+			<option disabled selected value>Select an Option</option>
+			<option value="Black Tea">Black Tea</option>
+			<option value="Latte">Latte</option>
+			<option value="Java Frappicino">Java Frappicino</option>
+			<option value="Green Tea">Green Tea</option>
+			<option value="Espresso">Espresso</option>
+			<option value="Mocha">Mocha</option>
+			</select>
+			<br>	
+			<br>
+			<br>
+			<span id="coffeeExpanded" style="display: none;">
+
+			<label for="coffeSize">Select a size*:</label>
+			<input type='checkbox' name="coffeSize" value="12oz" onclick="validateCoffeeSize(this)"/> 12oz
+			<input type='checkbox' name="coffeSize" value="16oz"  onclick="validateCoffeeSize(this)"/> 16oz
+			<input type='checkbox' name="coffeSize" value="18oz"  onclick="validateCoffeeSize(this)"/> 18oz
+			<br>
+			<div id = "errorCoffeeSize" style="display: none; color: red;">
+				Please select a valid coffee size
+			</div>
+			<br>
+			<span id="cofeeSizeExpanded" style="display: none;">
+				<label for="additionalInstructions">Additional Instruction:*</label>
+				<textarea name="text" id="additionalInstructions" placeholder=" any additional instructions to make your drink" rows="5"
+					cols="25" onblur="validateAddInst()"></textarea>
+				<br>
+				<div id = "errorAddInstructions" style="display: none; color: red;">
+					Please add any addiitonal instructions for your drink
+				</div>
+	
+
+			</span>
+		 </span>
+		 <br>
+		 <br>
+
+
+
              
             <label for="zipcode">How did you hear*:</label>
 			<input type='checkbox' name="source" value="facebook" /> Facebook
