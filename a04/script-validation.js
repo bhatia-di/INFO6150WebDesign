@@ -94,8 +94,20 @@ function onSubmit() {
     } else {
         // proceed with execution
 
+        //add rows to table
+
+        var table = document.getElementById("resultTable");
+
+        var row1 = table.insertRow(-1);
+        var cell1 = row1.insertCell(0);
+        var cell2 = row1.insertCell(1);
+        cell1.innerText = "First Name";
+        cell1.innerText = "blah";
 
 
+        // display true
+        table.style.display = "block";
+        
         // ends with reset 
         onReset()
 

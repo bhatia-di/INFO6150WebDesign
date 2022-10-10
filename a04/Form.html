@@ -16,6 +16,11 @@
 	  input,select,textarea {
 		margin-bottom: 5px;
 	  }
+	  tr,th {
+		border: 1px solid black;
+	  }
+
+	
 	 
   </style>
  </head>
@@ -151,6 +156,15 @@
 			<button id="reset" onclick="onReset()"> Reset </button>
 			<br><br>
 		 </form>
+
+
+		 <table id="resultTable" style="display: none; border: 2px solid black;">
+			<tr>
+			  <th>Attribute </th>
+			  <th>Value</th>
+			  
+			</tr>
+		 </table>
 	 </main>
  </div>
 
