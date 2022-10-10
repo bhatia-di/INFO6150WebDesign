@@ -67,11 +67,11 @@ function validatePhone(object) {
 
 function validateZipCode(object) {
 
-    const zipRegex = '^\d{5}(?:[-\s]\d{4})?$';
+    var regExZip = /^([0-9]{5})$/;
 
     const errorBlockID = "errorzipcode";
 
-    if(!object.value.trim().match(zipRegex)) {
+    if(!object.value.trim().match(regExZip)) {
         object.style.border = "2px solid red";
         document.getElementById(errorBlockID).style.display = "block";
     } else {
@@ -134,8 +134,7 @@ function onReset() {
     document.getElementById('errorEmail').style.display = 'none';
     document.getElementById('errorphonenumber').style.display = 'none';
     document.getElementById('errorzipcode').style.display = 'none';
-    document.getElementById('source').style.display = 'none';
-    
+    8
  
 
 
