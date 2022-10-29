@@ -186,9 +186,10 @@ $(document).ready(function () {
 
                 return tempresult;
             };
+            let finalRes = result(op1, op2, operatorValue);
 
             
-            $("#result").html(result);
+            $("#result").html(finalRes);
             $("#result").show();
 
 
