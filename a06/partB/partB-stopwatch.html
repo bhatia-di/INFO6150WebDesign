@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Stopwatch</title>
+  <style>
+    label {	float: left;
+			width: 150px;}
+      #container{
+          width: 700px;
+          margin: auto;
+          background-color: beige;
+      } 
+      main{
+          padding: 50px;
+      }
+	  input,select,textarea {
+		margin-bottom: 5px;
+	  }
+	  tr,th {
+		border: 1px solid black;
+	  }
+
+    button {
+      margin-right: 5px;
+    }
+
+	
+	 
+  </style>
+   <!-- jQuery library -->
+  
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+   <!-- Popper JS -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+   </script>
+   <!-- Latest compiled JavaScript -->
+   </script>
+ </head>
+ <body>
+ <div id="container">
+
+    <h3>Stopwatch Information:</h3>
+
+    <form method="post" novalidate onsubmit="return false">
+        <div id="timer">
+          <h3><span id="hour">00</span>:<span id="minute">00</span>: <span id="seconds">00</span></h3>
+          <h4><span >HH</span>:<span>MM</span>: <span>SS</span></h4>
+
+        </div>
+		    
+        <br/>
+
+        <button id="start">Start </button>
+        <button id="stop">Stop </button>
+        <button id="reset">Reset </button>
+
+
+    </form>
+
+
+ </div>
+
+ <script src="./main.js"></script>
+
+ </body>
+ </html>
