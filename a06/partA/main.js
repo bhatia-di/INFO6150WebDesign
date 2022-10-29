@@ -99,8 +99,7 @@ $(document).ready(function () {
             console.log("length (3, 10)");
 
           $("#errorusername").show();
-//          $("#errorEmail").html("**length of username must be between 3 and 10");
-          usernameError = false;
+=          usernameError = false;
           return false;
         } 
          else {
