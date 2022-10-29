@@ -162,7 +162,8 @@ $(document).ready(function () {
             let operator2 = $("#operator2").val();
             let op2 = parseFloat(operator2);
 
-            let result;
+            let result = (op1, op2, operatorValue) => {
+                let tempresult;
 
             switch(operatorValue) {
                 case 'Add': {
@@ -183,6 +184,10 @@ $(document).ready(function () {
                 }
             }
 
+                return tempresult;
+            };
+
+            
             $("#result").html(result);
             $("#result").show();
 
@@ -197,4 +202,31 @@ $(document).ready(function () {
 
         
       });
+
+      function getResult(op1, op2, operatorValue) {
+
+        let result;
+
+            switch(operatorValue) {
+                case 'Add': {
+                    result = op1 + op2;
+                    break;
+                }
+                case 'Subtract': {
+                    result = op1 - op2;
+                    break;
+                }
+                case 'Multiply': {
+                    result = op1 * op2;
+                    break;
+                }
+                case 'Divide': {
+                    result = op1 / op2;
+                    break;
+                }
+            }
+
+            return result;
+
+      }
 });
