@@ -163,30 +163,34 @@ $(document).ready(function () {
             let op2 = parseFloat(operator2);
 
             let result = (op1, op2, operatorValue) => {
+                
                 let tempresult;
 
             switch(operatorValue) {
                 case 'Add': {
-                    result = op1 + op2;
+                    tempresult = op1 + op2;
                     break;
                 }
                 case 'Subtract': {
-                    result = op1 - op2;
+                    tempresult = op1 - op2;
                     break;
                 }
                 case 'Multiply': {
-                    result = op1 * op2;
+                    tempresult = op1 * op2;
                     break;
                 }
                 case 'Divide': {
-                    result = op1 / op2;
+                    tempresult = op1 / op2;
                     break;
                 }
+                
             }
 
                 return tempresult;
             };
             let finalRes = result(op1, op2, operatorValue);
+
+            console.log(finalRes);
 
             
             $("#result").html(finalRes);
