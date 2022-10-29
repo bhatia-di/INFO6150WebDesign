@@ -26,6 +26,10 @@ $(document).ready(function () {
         $("#seconds").html("00");
         $("#minute").html("00");
         $("#hour").html("00");
+        seconds = 00;
+        mins = 00;
+        hours = 00;
+        
 
     });
 
