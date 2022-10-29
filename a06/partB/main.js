@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     $("#start").click(() => {
         clearInterval(Interval);
-        Interval = setInterval(startTimer, 10);
+        Interval = setInterval(startTimer, 1000);
    
 
     });
@@ -30,32 +30,29 @@ $(document).ready(function () {
     });
 
     function startTimer () {
-        tens++; 
+        seconds++; 
+        console.log(seconds);
         
         
-        if (tens > 99) {
-          console.log("seconds");
-          seconds++;
-          $("#seconds").html(seconds);
-          tens = 0;
-        }
-        
-        if (seconds > 9){
-            $("#seconds").html(seconds);
-
-        }
+        $("#seconds").html(seconds);
 
         // update minutes
 
         if (seconds > 60) {
             mins++;
+            seconds =0;
             $("#minute").html(mins);
+            $("#seconds").html(0);
+
 
 
         }
         if (mins > 60) {
+            mins =0;
             hours++;
             $("#hour").html(hours);
+            $("#minute").html(mins);
+
 
 
         }
