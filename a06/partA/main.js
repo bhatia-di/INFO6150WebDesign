@@ -21,7 +21,12 @@ $(document).ready(function () {
     $( "#submit" ).click(() => {
         if ($("#errorEmail").is(":hidden") && $("#errorpassword").is(":hidden")) {
             console.log(" -- hidden both errors ---");
-            window.open( "./partA-calculator.html");
+            var newWindow = window.open( "./partA-calculator.html");
+            newWindow.loggedInUserEmail = $("#email").val();
+            newWindow.loggedInUsername = $("#username").val();
+
+            //$("#loggedinuser").html("Logged in username" + $("#email").val() + " logged in user email: " + $("#username").val()  );
+
 
         }
         
@@ -35,6 +40,8 @@ $(document).ready(function () {
 
         if (passwordValue.length == "") {
             console.log("length empty");
+            $("#errorpassword").html("**length of password must be between 3 and 10");
+
           $("#errorpassword").show();
           passwordValue = false;
           return false;
@@ -99,7 +106,8 @@ $(document).ready(function () {
             console.log("length (3, 10)");
 
           $("#errorusername").show();
-=          usernameError = false;
+//          $("#errorEmail").html("**length of username must be between 3 and 10");
+          usernameError = false;
           return false;
         } 
          else {
@@ -180,6 +188,9 @@ $(document).ready(function () {
 
 
     $( "#submitCalc" ).click(() => {
+
+        console.log(window.loggedInUserEmail);
+        console.log(window.loggedInUsername);
 
         if ($("#erroroperator1").is(":hidden") && $("#erroroperator2").is(":hidden") && $("#erroroperand").is(":hidden")) {
             console.log(" -- hidden both errors ---");
