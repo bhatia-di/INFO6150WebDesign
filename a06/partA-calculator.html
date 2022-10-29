@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Calculator</title>
+  <style>
+    label {	float: left;
+			width: 150px;}
+      #container{
+          width: 700px;
+          margin: auto;
+          background-color: beige;
+      } 
+      main{
+          padding: 50px;
+      }
+	  input,select,textarea {
+		margin-bottom: 5px;
+	  }
+	  tr,th {
+		border: 1px solid black;
+	  }
+
+	
+	 
+  </style>
+   <!-- jQuery library -->
+  
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+   <!-- Popper JS -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+   </script>
+   <!-- Latest compiled JavaScript -->
+   </script>
+ </head>
+ <body>
+ <div id="container">
+
+    <h3>Calculator Information:</h3>
+
+    <form method="post" novalidate onsubmit="return false">
+        
+        <label for="operator1">Operator 1 *:</label>
+		<input type="text" name="operator1" id="operator1" placeholder="operator1"/>	
+		<div id = "erroroperator1" style="display: none; color: red;">
+				
+		</div>
+		<br/>
+
+        <label for="operator2">Operator 2*:</label>
+		<input type="text" name="operator2" id="operator2" placeholder="operator2"/>	
+		<div id = "erroroperator2" style="display: none; color: red;">
+		</div>
+		<br/>
+
+        <label for="operand">Operand*:</label>
+		<input type="text" name="operand" id="operand" placeholder="operand"/>	
+		<div id = "erroroperand" style="display: none; color: red;">
+		</div>
+		<br/>
+
+        <button id="submitCalc"> Submit </button>
+        <br/>
+        <div id = "submitError"></div>
+        <br/>
+
+
+        <label for="result">Result*:</label>
+        <div id = "result"></div>
+
+
+    </form>
+
+
+ </div>
+
+ <script src="./main.js"></script>
+
+ </body>
+ </html>

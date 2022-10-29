@@ -1,21 +1,22 @@
 $(document).ready(function () {
 
-    $("#email").keyup(function () {
+    $("#email").keyup( () => {
         validateUsername();
     });
 
-    $("#email").keydown(function () {
+    $("#email").keydown( () => {
         validateUsername();
     });
 
-    $("#password").keydown(function () {
+    $("#password").keydown( () => {
         validatePassword();
     });
 
 
-    $( "#submit" ).click(function() {
+    $( "#submit" ).click(() => {
         if ($("#errorEmail").is(":hidden") && $("#errorpassword").is(":hidden")) {
             console.log(" -- hidden both errors ---");
+            window.open( "./partA-calculator.html");
 
         }
         
@@ -78,4 +79,126 @@ $(document).ready(function () {
         }
       }
 
+    $("#operator1").keyup(() => {
+        validateOperatorOne();
+    });
+
+
+    function validateOperatorOne() {
+
+
+        let operatorValue = $("#operator1").val();
+        console.log(operatorValue);
+
+        let op = parseFloat(operatorValue);
+        console.log(op);
+
+        if (isNaN(op)) {
+            console.log("--nan---");
+            $("#erroroperator1").html("incorrect number");
+            $("#erroroperator1").show();
+        } else {
+            console.log("--hide error---");
+            $("#erroroperator1").hide();
+        }
+    }
+
+
+    $("#operator2").keyup( () => {
+        validateOperatorTwo();
+    });
+
+
+    function validateOperatorTwo() {
+
+        let operatorValue = $("#operator2").val();
+        let op = parseFloat(operatorValue);
+        console.log(op);
+
+        if (isNaN(op)) {
+            $("#erroroperator2").html("incorrect number");
+            $("#erroroperator2").show();
+        } else {
+            $("#erroroperator2").hide();
+        }
+    }
+
+    $("#operand").keyup( () => {
+        validateOperand();
+    });
+
+
+    function validateOperand() {
+
+        let operatorValue = $("#operand").val();
+        const operands = ["Add", "Subtract", "Multiply", "Divide"];
+
+        console.log(operatorValue);
+        if (!operands.includes(operatorValue)) {
+            console.log("includes");
+
+            $("#erroroperand").html("incorrect operand");
+            $("#erroroperand").show();
+        } else {
+            console.log("hide operand");
+
+            $("#erroroperand").hide();
+        }
+
+       
+    }
+
+
+
+    $( "#submitCalc" ).click(() => {
+
+        if ($("#erroroperator1").is(":hidden") && $("#erroroperator2").is(":hidden") && $("#erroroperand").is(":hidden")) {
+            console.log(" -- hidden both errors ---");
+            let operatorValue = $("#operand").val();
+
+            let operator1 = $("#operator1").val();
+            let op1 = parseFloat(operator1);
+    
+            let operator2 = $("#operator2").val();
+            let op2 = parseFloat(operator2);
+
+            let result;
+
+            switch(operatorValue) {
+                case 'Add': {
+                    result = op1 + op2;
+                    break;
+                }
+                case 'Subtract': {
+                    result = op1 - op2;
+                    break;
+                }
+                case 'Multiply': {
+                    result = op1 * op2;
+                    break;
+                }
+                case 'Divide': {
+                    result = op1 / op2;
+                    break;
+                }
+            }
+
+            $("#result").html(result);
+            $("#result").show();
+
+
+
+        } else {
+            console.log(" -- show error ---");
+            $("#submitError").show();
+
+        }
+
+     
+
+
+
+
+        
+      });
 });
