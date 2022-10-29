@@ -4,9 +4,14 @@ $(document).ready(function () {
         validateUsername();
     });
 
+    $("#username").keyup( () => {
+        validateUsernameUser();
+    });
+
     $("#email").keydown( () => {
         validateUsername();
     });
+
 
     $("#password").keydown( () => {
         validatePassword();
@@ -76,6 +81,31 @@ $(document).ready(function () {
          else {
            console.log(" should hide");
            $("#errorEmail").hide();
+        }
+      }
+
+
+
+      function validateUsernameUser() {
+        let usernameValue = $("#username").val();
+        console.log(usernameValue);
+
+        if (usernameValue.length == "") {
+            console.log("length empty");
+          $("#errorusername").show();
+          usernameError = false;
+          return false;
+        } else if (usernameValue.length < 3 || usernameValue.length > 30) {
+            console.log("length (3, 10)");
+
+          $("#errorusername").show();
+//          $("#errorEmail").html("**length of username must be between 3 and 10");
+          usernameError = false;
+          return false;
+        } 
+         else {
+           console.log(" should hide");
+           $("#errorusername").hide();
         }
       }
 
@@ -183,7 +213,7 @@ $(document).ready(function () {
                     tempresult = op1 / op2;
                     break;
                 }
-                
+
             }
 
                 return tempresult;
