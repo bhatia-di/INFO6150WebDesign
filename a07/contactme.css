@@ -1,5 +1,5 @@
 .header-grid { grid-area: header; }
-.menu-grid { grid-area: menu; height: 90vh; background-color: aquamarine; }
+.menu-grid { grid-area: menu; height: 90vh; width: 30vw;  border-radius: 5px; border: 1px solid lightgray;}
 .body-grid { grid-area: main; }
 .body-right-grid { grid-area: right; }
 .footer-grid { grid-area: footer; height: 2vh; }
@@ -21,4 +21,8 @@
   /* background-color: rgba(255, 255, 255, 0.8); */
   text-align: center;
   /* padding: 20px 0; */
+}
+.profile-menu {
+    border-radius: 50%;
+
 }
