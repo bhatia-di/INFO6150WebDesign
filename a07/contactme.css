@@ -1,14 +1,14 @@
 .header-grid { grid-area: header; }
 .menu-grid { grid-area: menu; height: 90vh; width: 30vw;  border-radius: 5px; border: 1px solid lightgray;}
-.body-grid { grid-area: main; }
-.body-right-grid { grid-area: right; }
+.body-grid { grid-area: main; height: 90vh; align-content: center;}
+.body-right-grid { grid-area: right; height: 90vh; width: 30vw; border-left: 1px solid lightgray;}
 .footer-grid { grid-area: footer; height: 2vh; }
 
 .grid-container {
   display: grid;
   grid-template-areas:
     'header header header header header header'
-    'menu main main main right right'
+    'menu main main right right right'
     'footer footer footer footer footer footer';
   gap: 1px;
   height: 100vh;
