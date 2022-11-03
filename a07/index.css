@@ -36,11 +36,7 @@
     min-width: 120px !important;
   }
 
-  .button-theme:hover {
-    transition: 0.9s;
-    background-color:#002ead !important;
-}
-
+  
 .a-tag {
     color: white !important;
     text-decoration: none !important ;

@@ -1,3 +1,8 @@
+@import "certificationGallery.scss";
+
+/* 
+Using the SASS Variables
+*/
 $purple: #6103EE;
 
 .bg-purple {
@@ -8,3 +13,68 @@ $purple: #6103EE;
     color: $purple !important;
 }
 
+/* 
+Using the SASS Custom Properties
+*/
+
+.button-theme {
+
+    $size: 12px;
+    background-color: black !important;
+    color: #fff !important;
+    border: none !important;
+    border: none !important;
+    border-radius: $size !important;
+    padding: $size !important;
+    min-height: 30px !important;
+    min-width: 120px !important;
+
+    &:hover {
+        transition: 0.9s;
+        background-color:#002ead !important;
+    }
+    
+  }
+
+
+/* 
+Using the SASS interpolation
+*/
+
+
+@mixin interpolation($prop1, $prop2, $prop1Vale){
+    
+    #{$prop1}: $prop1Vale; 
+}
+  .font-medium {
+    @include interpolation("font-size", "color" , "medium");
+}
+
+.font-large {
+    @include interpolation("font-size", "color" , "large");
+
+}
+
+.font-larger {
+    @include interpolation("font-size", "color" , "larger");
+}
+.font-largest {
+    @include interpolation("font-size", "color" , "xxx-large");
+}
+
+
+
+/* Functions
+*/
+
+@function sum($numbers...) {
+    $sum: 0;
+    @each $number in $numbers {
+      $sum: $sum + $number;
+    }
+    @return $sum;
+  }
+  
+  .micro {
+    width: sum(50px, 30px, 100px);
+  }
