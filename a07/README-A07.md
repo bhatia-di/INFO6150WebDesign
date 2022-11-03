@@ -2,8 +2,10 @@ In order to convert scss files into css file, we use the command:
 sass --watch ./scss/style.scss output.css
 
 CSS Grid layout/Flexbox
+Used Flex layout to change row and column direction for certification gallery
 
-
+CSS Grid Layout
+Used Github Project html page to set the grid layout and divided the page into sections named header, main, menu, footer
 
 # SASS Features
 
