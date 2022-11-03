@@ -10,10 +10,10 @@ Used Github Project html page to set the grid layout and divided the page into s
 # SASS Features
 
 1. Variables:
-
 Used $purple as a variable throughtout the code
 
 2. Custom Properties & Nesting:
+I have used $size as a custom property and nested CSS properties. 
 
 3. Interpolation:
 
@@ -22,5 +22,7 @@ Interpolation is basically an insertion. Interpolation allows us to interpolate 
 
 4. Placeholder selectors
 Sass has a special kind of selector known as a “placeholder”. It looks and acts a lot like a class selector, but it starts with a % and it's not included in the CSS output. In fact, any complex selector (the ones between the commas) that even contains a placeholder selector isn't included in the CSS, nor is any style rule whose selectors all contain placeholders.
+
+Used extend to use the placeholder CSS
 
 
