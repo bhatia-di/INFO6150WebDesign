@@ -8,4 +8,4 @@ module.exports = mongoose.model('UserAccount', {
     full_name : {type:  String, default: ''},
     password : {type: String, default: ''},
     versionKey: false
-})
+});

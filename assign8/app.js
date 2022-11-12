@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const port = 9091;
+app.use(express.json());
 
-const allRoutes = require('./routes/routes')
+const port = 9091;
 const mongoose = require('mongoose');
 
 
@@ -11,12 +11,18 @@ mongoose.connect("mongodb://127.0.0.1:27017/assign8", { useNewUrlParser: true, u
 
 mongoose.connection.on('connected', function(){
   console.log("Connection with MongoDB is established");
-})
+});
+
+
+
+//Importing user Routes
+const userRoute = require('./routes/userRoute');
+app.use('/user', userRoute);
 
 
 
 
-allRoutes(app);
+
 
 
 app.listen(port, () => {

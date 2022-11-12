@@ -1,9 +1,14 @@
 const UserModel = require('../models/userModel');
+const bcrypt = require('bcrypt');
 
 exports.getAllUsers = (req, res) => {
 
+    console.log("Fetching all users...");
+
     UserModel.find(function(error, users) {
         if (error) res.status(400).send(error);
+        console.log(users);
+
         users = users.map(u =>({
             email: u.email,
             full_name: u.full_name,
@@ -16,6 +21,8 @@ exports.getAllUsers = (req, res) => {
 }
 
 exports.createUser = (req, res) => {
+
+    console.log("Creating User...");
 
     var email = req.body.email || "";
     var password = req.body.password || "";
@@ -61,12 +68,10 @@ exports.createUser = (req, res) => {
             if(err) {
               console.log(err);
             }
+            console.log(user);
+
             if(user === null || user === undefined) {
 
-                res.status(400).send({"message": "User account already exists with the same email"});
-                return;
-                
-            } else {
                 var newUser = new UserModel(req.body);
                 newUser.password = bcrypt.hashSync(req.body.password, 10);
                 newUser.save(function(error, data) {
@@ -78,7 +83,11 @@ exports.createUser = (req, res) => {
                     res.status(201).send({"message": "User account was created successfully"});
 
                 });
-            }
+                return;
+                
+            } 
+            res.status(400).send({"message": "User account already exists with the same email"});
+
         });
     
 
@@ -106,19 +115,28 @@ exports.deleteUser = (req, res) => {
     
 }
 
+exports.deleteAllUser = (req, res) => {
+
+
+    UserModel.deleteMany({});
+    res.status(200).send({"message": "All records deleted successfully"});
+
+
+    
+}
+
 exports.editUserAcount = (req, res) => {
 
-    let { new_full_name, new_user_password, email} = req.body;
+    let { new_full_name, new_user_password} = req.body;
+    let email = req.params.email;
+
 
     const emailRegex = /^\w+([\.-]?\w+)*@northeastern.edu$/;
     const passwordRegex = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
     const full_nameRegex = /^[a-z ,.'-]+$/i;
 
 
-    if (email !== null) {
-        res.status(400).send({"message": "Email is present in the request body. Email should not be updated. "});
-        return;
-    }
+   
     if (new_full_name === null  || new_full_name === undefined || new_full_name.trim() === "") {
         res.status(400).send({"message": "Invalid request parameters, it needs full_name"});
         return;
@@ -158,7 +176,7 @@ exports.editUserAcount = (req, res) => {
         }
 
         user.full_name = new_full_name;
-        user.password = new_user_password;
+        user.password = newPassword;
         user.save();
         res.status(201).send({"message": "User is updated successfully"});
 
