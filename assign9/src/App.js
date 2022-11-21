@@ -68,10 +68,11 @@ const App = () => {
           <hr />
 
           <Routes>
-            <Route path="/" element={<Home login={login} />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/jobs" element={<Jobs />} />
+            <Route path="/" element={<Home login={login} loggedIn={loggedIn} />} />
+            <Route path="/home" element={<Home login={login} loggedIn={loggedIn} />} />
+            <Route path="/about" element={<About loggedIn={loggedIn} />} />
+            <Route path="/contact" element={<Contact loggedIn={loggedIn} />} />
+            <Route path="/jobs" element={<Jobs loggedIn={loggedIn} />} />
 
 
           </Routes>
