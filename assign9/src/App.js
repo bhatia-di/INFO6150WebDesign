@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,33 +14,61 @@ import { Navbar } from "./Navbar/Navbar";
 
 const App = () => {
 
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const login = (username, password) => {
+    console.log(username, password);
+
+    try {
+
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({"email": username, "password": password})
+      };
+          
+      const URL = "/api/user/login";
+      console.log(URL, username, password);
+
+      fetch(URL, requestOptions)
+          .then(response => {
+              console.log(response);
+              if (response.status === 200) {
+                  setLoggedIn(true);
+                  return response.json();
+              }
+              else {
+                  setLoggedIn(false);
+
+                  new Error();
+              } 
+          })
+          .then(result => {
+              console.log(result);  
+
+          }).catch((error) => {
+              setLoggedIn(false);
+              console.error("Fetch API Call failed with an error " + error);
+          });
+
+    } catch (error) {
+      console.error(error);
+      setLoggedIn(false);
+      console.log("error", error);
+    }  
+
+  }
+
 
   return (
     <div className="container-fluid">
       <Router>
         <div>
           <Navbar />
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            
-          </ul>
-
           <hr />
 
-          {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home login={login} />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/jobs" element={<Jobs />} />
@@ -49,7 +77,6 @@ const App = () => {
           </Routes>
         </div>
       </Router>
-      <h1>React application</h1>
     </div>
   
 

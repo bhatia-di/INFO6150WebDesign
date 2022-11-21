@@ -5,21 +5,34 @@ const e = require('express');
 
 exports.loginUser = (req, res) => {
     console.log("logging in  users...");
+    const request = null;
+    console.log(req.body);
+
+    
     const email = req.body.email;
-    const requestPassword  = req.body.email;
+    const requestPassword  = req.body.password;
+
+
     UserModel.findOne({email: email}, function(err, user){
 
         if (user == null) {
+            console.log("Invalid email");
             res.status(400).send({"message": "Invalid email"});
             return;
         }
 
-        var hashedRequestPassword = bcrypt.hashSync(requestPassword, 10);
+        var hashedRequestPassword = bcrypt.compare(requestPassword, user.password);
+        console.log(hashedRequestPassword);
+        console.log(user.password);
 
-        if (hashedRequestPassword === user.password) {
+        if (hashedRequestPassword) {
+            console.log("Successfully logged in");
+
             res.status(200).send({"message": "Successfully logged in"});
    
         } else {
+            console.log("invaldi logged in");
+
             res.status(400).send({"message": "Invalid login"});
         }
 
