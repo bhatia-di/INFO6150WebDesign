@@ -1,5 +1,31 @@
 const UserModel = require('../models/userModel');
 const bcrypt = require('bcrypt');
+const e = require('express');
+
+
+exports.loginUser = (req, res) => {
+    console.log("logging in  users...");
+    const email = req.body.email;
+    const requestPassword  = req.body.email;
+    UserModel.findOne({email: email}, function(err, user){
+
+        if (user == null) {
+            res.status(400).send({"message": "Invalid email"});
+            return;
+        }
+
+        var hashedRequestPassword = bcrypt.hashSync(requestPassword, 10);
+
+        if (hashedRequestPassword === user.password) {
+            res.status(200).send({"message": "Successfully logged in"});
+   
+        } else {
+            res.status(400).send({"message": "Invalid login"});
+        }
+
+    });
+
+};
 
 exports.getAllUsers = (req, res) => {
 

@@ -14,4 +14,8 @@ router.put("/edit/:email", UserService.editUserAcount);
 
 router.post("/create", UserService.createUser);
 
+router.post("/create", UserService.createUser);
+
+router.post("/login", UserService.loginUser);
+
 module.exports = router;

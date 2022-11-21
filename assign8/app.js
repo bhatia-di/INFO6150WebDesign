@@ -5,7 +5,7 @@ app.use(express.json());
 const port = 9091;
 const mongoose = require('mongoose');
 
-
+app.disable('etag');
 mongoose.connect("mongodb://127.0.0.1:27017/assign8", { useNewUrlParser: true, useUnifiedTopology: true });
 
 
@@ -17,7 +17,7 @@ mongoose.connection.on('connected', function(){
 
 //Importing user Routes
 const userRoute = require('./routes/userRoute');
-app.use('/user', userRoute);
+app.use('/api/user', userRoute);
 
 
 
