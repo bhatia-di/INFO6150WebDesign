@@ -21,13 +21,13 @@ exports.loginUser = (req, res) => {
             return;
         }
 
-        var hashedRequestPassword = bcrypt.compare(requestPassword, user.password);
+        var hashedRequestPassword = bcrypt.compareSync(requestPassword, user.password);
+        
         console.log(hashedRequestPassword);
         console.log(user.password);
 
         if (hashedRequestPassword) {
             console.log("Successfully logged in");
-
             res.status(200).send({"message": "Successfully logged in"});
    
         } else {
