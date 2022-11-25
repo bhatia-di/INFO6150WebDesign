@@ -9,10 +9,11 @@ import {
 } from "react-router-dom";
 import { Home } from './Home/Home';
 import { HourlyWeather } from './Weather/HourlyWeather';
-import { getNextFiveDays } from './utils/utils';
+import { getNextFiveDays, getNextFiveDates } from './utils/utils';
 
 function App() {
   const nextFiveDays = getNextFiveDays();
+  const nextFiveDates = getNextFiveDates();
 
 
   return (
@@ -28,7 +29,7 @@ function App() {
             {
                         nextFiveDays.map((day, index) => {
                             return (
-                              <Route key={'route' + index} path={"/" + day} element={<HourlyWeather />} />
+                              <Route key={'route' + index} path={"/" + day} element={<HourlyWeather date={nextFiveDates[index]} />} />
 
                             )
                         })

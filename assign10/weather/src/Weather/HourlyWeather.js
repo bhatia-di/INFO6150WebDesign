@@ -2,7 +2,8 @@ import React from "react";
 import Card from 'react-bootstrap/Card';
 
 
-export const HourlyWeather = (CardDetailProps) => {
+export const HourlyWeather = (HourlyWeatherProps) => {
+    console.log(HourlyWeatherProps.date);
     
     return(
 

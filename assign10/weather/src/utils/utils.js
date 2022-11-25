@@ -1,3 +1,5 @@
+import moment from "moment";
+
 const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
 export const getCurrentDay = () => {
@@ -25,3 +27,20 @@ export const getNextFiveDays = () => {
 
 };
 
+export const getNextFiveDates = () => {
+    var currentDate = moment();
+
+    var nextFiveDays = [];
+    var days = 5;
+
+    while (days !== 0) {
+
+        nextFiveDays.push(currentDate.format("YYYY-MM-DD"));
+        currentDate = currentDate.add(1, 'days');
+        days--;
+    }
+
+    return nextFiveDays;
+
+
+};
