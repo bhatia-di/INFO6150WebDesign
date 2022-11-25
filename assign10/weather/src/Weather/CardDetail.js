@@ -11,7 +11,7 @@ export const CardDetail = (CardDetailProps) => {
 
     return(
 
-        <Card border="primary" style={{ width: '13rem', marginRight: '5px' }}>
+        <Card border="primary">
             <Card.Img variant="top" src={url} />
             <Card.Body>
                 <Card.Title>{CardDetailProps.date}</Card.Title>
