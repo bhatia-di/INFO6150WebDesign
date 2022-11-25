@@ -6,3 +6,4 @@ refscipt.js
 **/node_modules/**
 a06/node_modules/**
 assign8/node_modules/**
+**/package-lock.json
