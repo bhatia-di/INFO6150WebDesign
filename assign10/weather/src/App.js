@@ -28,7 +28,7 @@ function App() {
             {
                         nextFiveDays.map((day, index) => {
                             return (
-                              <Route path={"/" + day} element={<HourlyWeather />} />
+                              <Route key={'route' + index} path={"/" + day} element={<HourlyWeather />} />
 
                             )
                         })

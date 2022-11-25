@@ -24,3 +24,4 @@ export const getNextFiveDays = () => {
     return nextFiveDays;
 
 };
+
